@@ -1,6 +1,5 @@
 /***********************************************
  * Funciones para usar en todo el proyecto
- * 
  ***********************************************/
 
 
@@ -77,6 +76,49 @@ function es_par(numero){
 		resul=true;
 	};
 	
+	return resul;
+}
+
+
+/**
+ * Convierte  fecha a formato español.
+ * @param date objeto tipo Date con la fecha a convertir.
+ * @param formato CORTO: 'dd/mm/aaaa' ; LARGO: '1 de enero del 1970'.
+ * @returns {String} cadena de texto con la fecha convertida, si falla retorna null.
+ */
+//formatos posibles para las fechas
+const CORTO = 'corto';
+const LARGO = 'largo';
+
+function convertirFecha( date, formato ){
+	var resul = "";
+	var ames = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+	
+	if (date instanceof Date){
+		
+		var dia = date.getDate();
+		var mes = date.getMonth();
+		var ano = date.getFullYear();
+		
+		switch (formato) {
+			case CORTO:
+				if (mes < 10){
+					resul = dia + "/0" + (mes + 1) + "/" + ano;
+				}else{
+					resul = dia + "/" + (mes + 1) + "/" + ano; 
+				}
+				break;
+			case LARGO:
+					resul = dia + " de " + ames[mes] + " del " + ano; 
+				break;
+			default:
+				resul = null
+				break;
+		}
+	}
+	else {
+		resul = null;
+	}
 	return resul;
 }
 
