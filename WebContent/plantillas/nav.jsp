@@ -90,6 +90,7 @@
 				<h3>Plugins</h3>
 				<ul>
 					<li><a href="ejemplos/plugins/datatable.jsp">dataTables</a></li>
+					<li><a href="ejemplos/plugins/jqueryui.jsp">jQueryUI</a></li>
 				</ul>
 			</li>
 			<li>
